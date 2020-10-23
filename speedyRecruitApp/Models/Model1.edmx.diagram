@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b8eece1616d642319c9262657924eadb" Name="Diagram1">
+        <EntityTypeShape EntityType="ScannerDbModel.Candidate" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScannerDbModel.Department" Width="1.5" PointX="8" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScannerDbModel.Education" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScannerDbModel.Experience" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScannerDbModel.Manager" Width="1.5" PointX="8" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScannerDbModel.Reference" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScannerDbModel.Role" Width="1.5" PointX="5.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScannerDbModel.Skill" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScannerDbModel.User" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="ScannerDbModel.FK_Education_Candidate" ManuallyRouted="false" />
+        <AssociationConnector Association="ScannerDbModel.FK_Experience_Candidate" ManuallyRouted="false" />
+        <AssociationConnector Association="ScannerDbModel.FK_Reference_Candidate" ManuallyRouted="false" />
+        <AssociationConnector Association="ScannerDbModel.FK_Skills_Candidate" ManuallyRouted="false" />
+        <AssociationConnector Association="ScannerDbModel.FK_Department_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="ScannerDbModel.FK_Manager_Roles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

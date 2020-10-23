@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ScannerDbModelStoreContainer" CdmEntityContainer="ScannerDbEntities">
+    <EntitySetMapping Name="Candidates">
+      <EntityTypeMapping TypeName="ScannerDbModel.Candidate">
+        <MappingFragment StoreEntitySet="Candidate">
+          <ScalarProperty Name="Candidate_Id" ColumnName="Candidate_Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Contact_No" ColumnName="Contact_No" />
+          <ScalarProperty Name="Date_Of_Birth" ColumnName="Date_Of_Birth" />
+          <ScalarProperty Name="Id_No" ColumnName="Id_No" />
+          <ScalarProperty Name="Summary" ColumnName="Summary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="ScannerDbModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="Dept_Id" ColumnName="Dept_Id" />
+          <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
+          <ScalarProperty Name="Role_Id" ColumnName="Role_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Educations">
+      <EntityTypeMapping TypeName="ScannerDbModel.Education">
+        <MappingFragment StoreEntitySet="Education">
+          <ScalarProperty Name="Edu_Id" ColumnName="Edu_Id" />
+          <ScalarProperty Name="Date_Obtained" ColumnName="Date_Obtained" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="Institution" ColumnName="Institution" />
+          <ScalarProperty Name="Candidate_Id" ColumnName="Candidate_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Experiences">
+      <EntityTypeMapping TypeName="ScannerDbModel.Experience">
+        <MappingFragment StoreEntitySet="Experience">
+          <ScalarProperty Name="Exp_Id" ColumnName="Exp_Id" />
+          <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+          <ScalarProperty Name="End_Date" ColumnName="End_Date" />
+          <ScalarProperty Name="Candidate_Id" ColumnName="Candidate_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Managers">
+      <EntityTypeMapping TypeName="ScannerDbModel.Manager">
+        <MappingFragment StoreEntitySet="Manager">
+          <ScalarProperty Name="Man_Id" ColumnName="Man_Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Dept_Id" ColumnName="Dept_Id" />
+          <ScalarProperty Name="Role_Id" ColumnName="Role_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="References">
+      <EntityTypeMapping TypeName="ScannerDbModel.Reference">
+        <MappingFragment StoreEntitySet="Reference">
+          <ScalarProperty Name="Ref_Id" ColumnName="Ref_Id" />
+          <ScalarProperty Name="Ref_Name" ColumnName="Ref_Name" />
+          <ScalarProperty Name="Ref_Contact_No" ColumnName="Ref_Contact_No" />
+          <ScalarProperty Name="Ref_Email" ColumnName="Ref_Email" />
+          <ScalarProperty Name="Ref_Position" ColumnName="Ref_Position" />
+          <ScalarProperty Name="Ref_Company_Name" ColumnName="Ref_Company_Name" />
+          <ScalarProperty Name="Candidate_Id" ColumnName="Candidate_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="ScannerDbModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Role_Id" ColumnName="Role_Id" />
+          <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Skills">
+      <EntityTypeMapping TypeName="ScannerDbModel.Skill">
+        <MappingFragment StoreEntitySet="Skills">
+          <ScalarProperty Name="Skill_Id" ColumnName="Skill_Id" />
+          <ScalarProperty Name="Skill_Type" ColumnName="Skill_Type" />
+          <ScalarProperty Name="Candidate_Id" ColumnName="Candidate_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ScannerDbModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Confirm_Password" ColumnName="Confirm_Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

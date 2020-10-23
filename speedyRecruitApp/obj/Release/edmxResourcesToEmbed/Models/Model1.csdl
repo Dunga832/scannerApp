@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ScannerDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Candidate">
+    <Key>
+      <PropertyRef Name="Candidate_Id" />
+    </Key>
+    <Property Name="Candidate_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contact_No" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date_Of_Birth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Id_No" Type="Int32" Nullable="false" />
+    <Property Name="Summary" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Educations" Relationship="Self.FK_Education_Candidate" FromRole="Candidate" ToRole="Education" />
+    <NavigationProperty Name="Experiences" Relationship="Self.FK_Experience_Candidate" FromRole="Candidate" ToRole="Experience" />
+    <NavigationProperty Name="References" Relationship="Self.FK_Reference_Candidate" FromRole="Candidate" ToRole="Reference" />
+    <NavigationProperty Name="Skills" Relationship="Self.FK_Skills_Candidate" FromRole="Candidate" ToRole="Skills" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Dept_Id" />
+    </Key>
+    <Property Name="Dept_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Dept_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Role_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_Department_Roles" FromRole="Department" ToRole="Roles" />
+  </EntityType>
+  <EntityType Name="Education">
+    <Key>
+      <PropertyRef Name="Edu_Id" />
+    </Key>
+    <Property Name="Edu_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date_Obtained" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Qualification" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Institution" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Candidate_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Candidate" Relationship="Self.FK_Education_Candidate" FromRole="Education" ToRole="Candidate" />
+  </EntityType>
+  <EntityType Name="Experience">
+    <Key>
+      <PropertyRef Name="Exp_Id" />
+    </Key>
+    <Property Name="Exp_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Company_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Position" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Start_Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="End_Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Candidate_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Candidate" Relationship="Self.FK_Experience_Candidate" FromRole="Experience" ToRole="Candidate" />
+  </EntityType>
+  <EntityType Name="Manager">
+    <Key>
+      <PropertyRef Name="Man_Id" />
+    </Key>
+    <Property Name="Man_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Dept_Id" Type="Int32" Nullable="false" />
+    <Property Name="Role_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_Manager_Roles" FromRole="Manager" ToRole="Roles" />
+  </EntityType>
+  <EntityType Name="Reference">
+    <Key>
+      <PropertyRef Name="Ref_Id" />
+    </Key>
+    <Property Name="Ref_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ref_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ref_Contact_No" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ref_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ref_Position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ref_Company_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Candidate_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Candidate" Relationship="Self.FK_Reference_Candidate" FromRole="Reference" ToRole="Candidate" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Role_Id" />
+    </Key>
+    <Property Name="Role_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Role_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Departments" Relationship="Self.FK_Department_Roles" FromRole="Roles" ToRole="Department" />
+    <NavigationProperty Name="Managers" Relationship="Self.FK_Manager_Roles" FromRole="Roles" ToRole="Manager" />
+  </EntityType>
+  <EntityType Name="Skill">
+    <Key>
+      <PropertyRef Name="Skill_Id" />
+    </Key>
+    <Property Name="Skill_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Skill_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Candidate_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Candidate" Relationship="Self.FK_Skills_Candidate" FromRole="Skills" ToRole="Candidate" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Confirm_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Education_Candidate">
+    <End Role="Candidate" Type="Self.Candidate" Multiplicity="1" />
+    <End Role="Education" Type="Self.Education" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Candidate">
+        <PropertyRef Name="Candidate_Id" />
+      </Principal>
+      <Dependent Role="Education">
+        <PropertyRef Name="Candidate_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Experience_Candidate">
+    <End Role="Candidate" Type="Self.Candidate" Multiplicity="1" />
+    <End Role="Experience" Type="Self.Experience" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Candidate">
+        <PropertyRef Name="Candidate_Id" />
+      </Principal>
+      <Dependent Role="Experience">
+        <PropertyRef Name="Candidate_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_Candidate">
+    <End Role="Candidate" Type="Self.Candidate" Multiplicity="1" />
+    <End Role="Reference" Type="Self.Reference" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Candidate">
+        <PropertyRef Name="Candidate_Id" />
+      </Principal>
+      <Dependent Role="Reference">
+        <PropertyRef Name="Candidate_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Skills_Candidate">
+    <End Role="Candidate" Type="Self.Candidate" Multiplicity="1" />
+    <End Role="Skills" Type="Self.Skill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Candidate">
+        <PropertyRef Name="Candidate_Id" />
+      </Principal>
+      <Dependent Role="Skills">
+        <PropertyRef Name="Candidate_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Department_Roles">
+    <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+    <End Role="Department" Type="Self.Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Role_Id" />
+      </Principal>
+      <Dependent Role="Department">
+        <PropertyRef Name="Role_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Manager_Roles">
+    <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+    <End Role="Manager" Type="Self.Manager" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Role_Id" />
+      </Principal>
+      <Dependent Role="Manager">
+        <PropertyRef Name="Role_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ScannerDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Candidates" EntityType="Self.Candidate" />
+    <EntitySet Name="Departments" EntityType="Self.Department" />
+    <EntitySet Name="Educations" EntityType="Self.Education" />
+    <EntitySet Name="Experiences" EntityType="Self.Experience" />
+    <EntitySet Name="Managers" EntityType="Self.Manager" />
+    <EntitySet Name="References" EntityType="Self.Reference" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="Skills" EntityType="Self.Skill" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Education_Candidate" Association="Self.FK_Education_Candidate">
+      <End Role="Candidate" EntitySet="Candidates" />
+      <End Role="Education" EntitySet="Educations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Experience_Candidate" Association="Self.FK_Experience_Candidate">
+      <End Role="Candidate" EntitySet="Candidates" />
+      <End Role="Experience" EntitySet="Experiences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_Candidate" Association="Self.FK_Reference_Candidate">
+      <End Role="Candidate" EntitySet="Candidates" />
+      <End Role="Reference" EntitySet="References" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Skills_Candidate" Association="Self.FK_Skills_Candidate">
+      <End Role="Candidate" EntitySet="Candidates" />
+      <End Role="Skills" EntitySet="Skills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Department_Roles" Association="Self.FK_Department_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Department" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Manager_Roles" Association="Self.FK_Manager_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Manager" EntitySet="Managers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
