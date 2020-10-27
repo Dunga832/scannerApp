@@ -8,7 +8,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ZXing;
-using System.Web.Mvc;
 
 namespace speedyRecruitApp.Controllers
 {

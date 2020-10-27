@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace speedyRecruitApp
+namespace ResumeMVC
 {
     public class FilterConfig
     {
